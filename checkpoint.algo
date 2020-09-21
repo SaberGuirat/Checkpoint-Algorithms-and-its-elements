@@ -12,10 +12,12 @@ BEGIN
     WHILE (sentence[i] <> ".") DO 
         IF (sentence[i] = space) THEN 
             spaceNumber := spaceNumber+1;
+            BREAK; // if the character is an empty space let s break the loop 
         ELSE
             charNumber := charNumber+1;
         END_IF
-        IF ((sentence[i]="a") OR (sentence[i]="e") OR (sentence[i]="i") OR (sentence[i]="o") OR (sentence[i]="u") OR (sentence[i]="y")) THEN
+        sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
+        IF ((sentence[i]="A") OR (sentence[i]="E") OR (sentence[i]="I") OR (sentence[i]="O") OR (sentence[i]="U") OR (sentence[i]="Y")) THEN
             vowelsNumber := vowelsNumber+1;
         END_IF
         i := i+1;
