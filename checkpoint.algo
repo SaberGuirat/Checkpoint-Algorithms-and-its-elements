@@ -9,7 +9,7 @@ VAR
 BEGIN
     Write("write a sentence");
     Read(sentence);
-    WHILE (sentence[i] NOT ".") DO 
+    WHILE (sentence[i] <> ".") DO 
         IF (sentence[i] = space) THEN 
             spaceNumber := spaceNumber+1;
         ELSE
