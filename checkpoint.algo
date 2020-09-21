@@ -1,0 +1,26 @@
+ALGORITHM checkPoint
+VAR
+    sentence : STRING;
+    charNumber : INTEGER :=0;// characters counter
+    spaceNumber : INTEGER :=0; // space counter to find number of words
+    space : CHAR :=' ';
+    vowelsNumber : INTEGER :=0; // vowels counter 
+    i : INTEGER :=0; // full  sentence counter 
+BEGIN
+    Write("write a sentence");
+    Read(sentence);
+    WHILE (sentence[i] NOT ".") DO 
+        IF (sentence[i] = space) THEN 
+            spaceNumber := spaceNumber+1;
+        ELSE
+            charNumber := charNumber+1;
+        END_IF
+        IF ((sentence[i]="a") OR (sentence[i]="e") OR (sentence[i]="i") OR (sentence[i]="o") OR (sentence[i]="u") OR (sentence[i]="y")) THEN
+            vowelsNumber := vowelsNumber+1;
+        END_IF
+        i := i+1;
+    END_WHILE
+    Write ("The length of the sentence (the number of characters) = : ", charNumber);  // only char number 
+    Write ("Number of words = : ", spaceNumber+1); // add +1 , example 2 words separated by 1 space  
+    Write ("Number of vowels = : ", vowelsNumber);
+END
