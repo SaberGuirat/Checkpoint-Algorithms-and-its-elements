@@ -13,11 +13,11 @@ BEGIN
         i := i+1;
     UNTIL (sentence[sentence.length-1]==".")// sentence.length-1 is the last character index and it should be "." 
     FOR i FROM 0 TO sentence.length-2 STEP 1 DO // sentence[length-1] is "." so we use length -2 
-        sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
         IF (sentence[i] == space) THEN 
             spaceNumber := spaceNumber+1;
         ELSE
             charNumber := charNumber+1;
+            sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
         END_IF
         IF ((sentence[i]=="A") OR (sentence[i]=="E") OR (sentence[i]=="I") OR (sentence[i]=="O") OR (sentence[i]=="U") OR (sentence[i]=="Y")) THEN
             vowelsNumber := vowelsNumber+1;
