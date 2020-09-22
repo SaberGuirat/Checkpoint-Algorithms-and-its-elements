@@ -7,22 +7,22 @@ VAR
     vowelsNumber : INTEGER :=0; // vowels counter 
     i : INTEGER :=0; // full  sentence counter 
 BEGIN
-    Write("write a sentence");
-    Read(sentence);
-    WHILE (sentence[i] <> ".") DO 
-        IF (sentence[i] = space) THEN 
+    REPEAT
+        Write("write a sentence  which ends with a point");
+        Read(sentence);
+    UNTIL (sentence[sentence.length-1]=".")
+    FOR i FROM 0 TO sentence.length-2 STEP 1 DO // sentence[length-1] is "." so we use length -2 
+        sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
+        IF (sentence[i] == space) THEN 
             spaceNumber := spaceNumber+1;
-            BREAK; // if the character is an empty space let s break the loop 
         ELSE
             charNumber := charNumber+1;
         END_IF
-        sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
-        IF ((sentence[i]="A") OR (sentence[i]="E") OR (sentence[i]="I") OR (sentence[i]="O") OR (sentence[i]="U") OR (sentence[i]="Y")) THEN
+        IF ((sentence[i]=="A") OR (sentence[i]=="E") OR (sentence[i]=="I") OR (sentence[i]=="O") OR (sentence[i]=="U") OR (sentence[i]=="Y")) THEN
             vowelsNumber := vowelsNumber+1;
         END_IF
-        i := i+1;
-    END_WHILE
-    Write ("The length of the sentence (the number of characters) = : ", charNumber);  // only char number 
+    END_FOR
+    Write ("The length of the sentence (the number of characters) = : ", charNumber);  // output char number 
     Write ("Number of words = : ", spaceNumber+1); // add +1 , example 2 words separated by 1 space  
-    Write ("Number of vowels = : ", vowelsNumber);
+    Write ("Number of vowels = : ", vowelsNumber); // output vowels numbers
 END
