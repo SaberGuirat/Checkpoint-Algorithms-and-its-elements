@@ -11,7 +11,7 @@ BEGIN
     REPEAT
         Read(sentence[i]);
         i := i+1;
-    UNTIL (sentence[i-1]==".")
+    UNTIL (sentence[i-1]==".")// sentence[i-1] because we incrimented by 1 after reading character
     FOR i FROM 0 TO sentence.length-2 STEP 1 DO // sentence[length-1] is "." so we use length -2 
         sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
         IF (sentence[i] == space) THEN 
