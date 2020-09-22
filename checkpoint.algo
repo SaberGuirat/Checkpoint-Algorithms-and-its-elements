@@ -19,6 +19,7 @@ BEGIN
         sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
         IF ((sentence[i]="A") OR (sentence[i]="E") OR (sentence[i]="I") OR (sentence[i]="O") OR (sentence[i]="U") OR (sentence[i]="Y")) THEN
             vowelsNumber := vowelsNumber+1;
+            BREAK;
         END_IF
         i := i+1;
     END_WHILE
