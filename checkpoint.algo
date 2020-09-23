@@ -1,29 +1,36 @@
 ALGORITHM checkPoint
 VAR
-    sentence : STRING;
-    charNumber : INTEGER :=0;// characters counter
-    spaceNumber : INTEGER :=0; // space counter to find number of words
-    space : CHAR :=' ';
+    sentence : STRING:='';//empty sentence
+    ch: CHAR;              // character used to input the sentence
+    sentenceLength : INTEGER :=0;// characters counter
+    wordsNumber : INTEGER :=0; // words counter
     vowelsNumber : INTEGER :=0; // vowels counter 
     i : INTEGER :=0; // full  sentence counter 
 BEGIN
     Write("write a sentence  which ends with a point");
     REPEAT
-        Read(sentence[i]);
-        i := i+1;
-    UNTIL (sentence[sentence.length-1]==".")// sentence.length-1 is the last character index and it should be "." 
-    FOR i FROM 0 TO sentence.length-2 STEP 1 DO // sentence[length-1] is "." so we use length -2 
-        IF (sentence[i] == space) THEN 
-            spaceNumber := spaceNumber+1;
+        Read(ch);
+        sentence :=sentence+ch;
+    UNTIL (ch==".")
+    WHILE (sentence[i]<>".") DO
+        IF (sentence[i]==" ") THEN // count words by identifying spaces in the sentence
+            wordsNumber := wordsNumber+1;
         ELSE
-            charNumber := charNumber+1;
             sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
+            SWITCH (sentence[i]) DO
+                case "A" : 
+                case "E" :
+                case "I" : 
+                case "O" : 
+                case "U" : 
+                case "Y" : vowelsNumber:=vowelsNumber+1;
+                           BREAK;
+            END_SWITCH
         END_IF
-        IF ((sentence[i]=="A") OR (sentence[i]=="E") OR (sentence[i]=="I") OR (sentence[i]=="O") OR (sentence[i]=="U") OR (sentence[i]=="Y")) THEN
-            vowelsNumber := vowelsNumber+1;
-        END_IF
-    END_FOR
-    Write ("The length of the sentence (the number of characters) = : ", charNumber);  // output char number 
-    Write ("Number of words = : ", spaceNumber);// output number of words 
+        i=i+1
+        sentenceLength:=i+1;
+    END_WHILE
+    Write ("The length of the sentence (the number of characters) = : ", sentenceLength);  // output char number 
+    Write ("Number of words = : ", wordsNumber);// output number of words 
     Write ("Number of vowels = : ", vowelsNumber); // output vowels numbers
 END
