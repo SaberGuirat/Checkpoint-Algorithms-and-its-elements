@@ -15,9 +15,8 @@ BEGIN
     WHILE (sentence[i]<>".") DO
         IF (sentence[i]==" ") THEN // count words by identifying spaces in the sentence
             wordsNumber := wordsNumber+1;
-        ELSE
-            sentence[i] := ToUpper(sentence[i]);// uppercase characters to use for counting vowels 
-            SWITCH (sentence[i]) DO
+        ELSE 
+            SWITCH (ToUpper(sentence[i])) DO
                 case "A" : 
                 case "E" :
                 case "I" : 
