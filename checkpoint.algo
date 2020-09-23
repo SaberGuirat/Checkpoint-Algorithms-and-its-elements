@@ -28,8 +28,8 @@ BEGIN
             END_SWITCH
         END_IF
         i=i+1
-        sentenceLength:=i+1;
     END_WHILE
+    sentenceLength :=i+1; // i is the "." index now so we add 1 to calculate length sentence
     Write ("The length of the sentence (the number of characters) = : ", sentenceLength);  // output char number 
     Write ("Number of words = : ", wordsNumber);// output number of words 
     Write ("Number of vowels = : ", vowelsNumber); // output vowels numbers
